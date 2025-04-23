@@ -1,0 +1,78 @@
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    background-color: #2c2c2c;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 50%;
+    max-width: 410px;
+}
+
+.container-item {
+    margin-bottom: 25px;
+}
+
+.container-item p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+}
+
+.container-item input{
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #333;
+    color: #f0f0f0;
+    width: 100%;
+    max-width: 200px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    margin-top: 6px;
+}
+
+.container-item input:focus {
+    outline: none;
+    border-color: #64b5f6;
+}
+
+.container-item button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container-item button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.container-item button:active {
+    transform: scale(0.95);
+}
+
+#current-activity {
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8bc34a;
+}

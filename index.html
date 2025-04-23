@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="onLoad()">
+<div class="container">
+    <div class="container-item">
+        <p id="currentActivity">Current Activity: none</p>
+    </div>
+    <div class="container-item">
+        <label>
+            <input placeholder="Running" id="activityName">
+            <input placeholder="Sport;Free time;..." id="activityTag">
+        </label>
+    </div>
+    <div class="container-item">
+        <button onclick="addActivityButton()">Change Activity</button>
+    </div>
+    <div class="container-item">
+        <button onclick="exportActivities()">Download JSON</button>
+    </div>
+</div>
+</body>
+<script src="script.js"></script>
+</html>
