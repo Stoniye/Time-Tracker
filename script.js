@@ -32,9 +32,39 @@ function visualizeCurrentActivity() {
     let activities = loadActivitiesData();
     if (activities.length === 0) {return;}
     const lastActiveActivityIndex = activities.findIndex(activity => activity.endTime === null);
-    const startTime = new Date(activities[lastActiveActivityIndex].startTime);
-    const formattedTime = `${String(startTime.getHours()).padStart(2, '0')}:${String(startTime.getMinutes()).padStart(2, '0')}:${String(startTime.getSeconds()).padStart(2, '0')}`;
-    document.getElementById("currentActivity").innerText = "Current Activity: " + activities[lastActiveActivityIndex].activity + " (since " + formattedTime + ")"
+    document.getElementById("currentActivity").innerText = "Current Activity: " + activities[lastActiveActivityIndex].activity + " (since: " + formatTime(activities[lastActiveActivityIndex].startTime) + ")"
+
+    const historyContainer = document.getElementById("activityHistory");
+    historyContainer.innerHTML = ``;
+    let lastDate = null;
+    let endTime = null;
+
+    for (let i = 0; i < activities.length; i++) {
+        if(formatDate(activities[i].startTime) !== lastDate) {
+            historyContainer.innerHTML += `<p class="date-header">${formatDate(activities[i].startTime)}</p>`;
+            lastDate = formatDate(activities[i].startTime);
+        }
+
+        if (activities[i].endTime == null) {
+            endTime = "now";
+        } else{
+            endTime = formatTime(activities[i].endTime);
+        }
+
+        historyContainer.innerHTML += `
+            <p class="time-header">${formatTime(activities[i].startTime)} - ${endTime}</p>
+            <p class="activity-header">${activities[i].activity}</p>`;
+    }
+}
+
+function formatTime(time) {
+    const TimeVar = new Date(time);
+    return `${String(TimeVar.getHours()).padStart(2, '0')}:${String(TimeVar.getMinutes()).padStart(2, '0')}`;
+}
+
+function formatDate(time) {
+    const TimeVar = new Date(time);
+    return `${String(TimeVar.getDay()).padStart(2, '0')}.${String(TimeVar.getMonth()).padStart(2, '0')}.${String(TimeVar.getFullYear()).padStart(2, '0')}`;
 }
 
 function exportActivities() {
